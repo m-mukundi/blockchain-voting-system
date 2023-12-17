@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "257988195168",
+    "project_id": "voting-app-183e7",
+    "storage_bucket": "voting-app-183e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257988195168:android:2219663e76f391285c2405",
+        "android_client_info": {
+          "package_name": "com.example.voting_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa_pSH6hwFjVJHPLAjNFsikZpliesL6Uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
