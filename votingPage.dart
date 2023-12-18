@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:web3dart/web3dart.dart';
+import 'package:http/http.dart' show Client;
 
 class VotingApp extends StatelessWidget {
   @override
@@ -15,6 +17,9 @@ class VotingPage extends StatefulWidget {
 }
 
 class _VotingPageState extends State<VotingPage> {
+  // Infura URL with your API key
+  final infuraUrl = 'https://mainnet.infura.io/v3/d6daa3c4e3af4b7db5ff60515624339d';
+
   List<Candidate> candidates = [
     Candidate(name: 'Candidate A'),
     Candidate(name: 'Candidate B'),
@@ -23,6 +28,24 @@ class _VotingPageState extends State<VotingPage> {
   ];
 
   Candidate? selectedCandidate;
+
+  // Ethereum client
+  late Web3Client ethClient;
+
+  @override
+  void initState() {
+    super.initState();
+    connectToEthereumNode();
+  }
+
+  Future<void> connectToEthereumNode() async {
+    ethClient = Web3Client(infuraUrl, Client());
+    // You can now use 'ethClient' to interact with the Ethereum node
+    // For example, you can check the balance of an Ethereum address
+    EthereumAddress address = EthereumAddress.fromHex('0x95C88D5E1295515918eb2D848dCe89C561CCf470');
+    EtherAmount balance = await ethClient.getBalance(address);
+    print('Balance: ${balance.getValueInUnit(EtherUnit.ether)} ETH');
+  }
 
   void vote() {
     if (selectedCandidate != null) {
